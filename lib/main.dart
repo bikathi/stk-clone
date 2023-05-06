@@ -26,7 +26,7 @@ void main() {
       "/saf-plus/": (context) => const SafaricomPlus(),
       "/mpesa-menu/": (context) => const MpesaMenu(),
       "/send-money-number/": (context) => const SendMoneyEnterNumber(),
-      "/send-money-amount": (context) => const SendMoneyEnterAmount()
+      "/send-money-amount/": (context) => const SendMoneyEnterAmount()
     },
   ));
 }
