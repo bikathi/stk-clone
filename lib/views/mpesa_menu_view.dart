@@ -13,18 +13,18 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
+import 'package:stkclone/objects/mpesa_menu_entries.dart';
 
 class MpesaMenu extends StatelessWidget {
   const MpesaMenu({super.key});
 
-  // non-changing states
-  static const List<String> mpesaOptions = [
-    "Send Money",
-    "Withdraw Cash",
-    "Buy Airtime",
-    "Loans and Savings",
-    "Lipa na M-PESA",
-    "My Account"
+  static const List<MpesaMenuEntries> mpesaOptions = [
+    MpesaMenuEntries("Send Money", "/send-money-number/"),
+    MpesaMenuEntries("Withdraw Cash", ""),
+    MpesaMenuEntries("Buy Airtime", ""),
+    MpesaMenuEntries("Loans and Savings", ""),
+    MpesaMenuEntries("Lipa na M-PESA", ""),
+    MpesaMenuEntries("My Account", ""),
   ];
 
   @override
@@ -32,14 +32,18 @@ class MpesaMenu extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Flutter M-Pesa"),
+        elevation: 0.0,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: mpesaOptions.map((option) {
           return TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil(option.routeName, (route) => true);
+              },
               child: Text(
-                option,
+                option.entryText,
                 style: const TextStyle(
                     color: Colors.black, fontWeight: FontWeight.normal),
               ));
