@@ -26,7 +26,52 @@ class _SendMoneyEnterNumberState extends State<SendMoneyEnterNumber> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hello World"),
+        title: const Text("Flutter: Recipient's Number"),
+        elevation: 0.0,
+      ),
+      body: Container(
+        color: Colors.white,
+        padding: const EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 0.0),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const Text("Enter Recipient Phone Number"),
+          const TextField(
+            keyboardType: TextInputType.number,
+          ),
+          const SizedBox(
+            height: 12.0,
+          ),
+          const Text("some-random-text"),
+          const SizedBox(
+            height: 12.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              FilledButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      "/send-money-amount/", (route) => true);
+                },
+                style: const ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
+                        vertical: 12.0, horizontal: 20.0))),
+                child: const Text("Proceed"),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil("/mpesa-menu/", (route) => true);
+                },
+                style: const ButtonStyle(
+                    foregroundColor: MaterialStatePropertyAll(Colors.blue),
+                    elevation: MaterialStatePropertyAll(0.0),
+                    padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
+                        vertical: 12.0, horizontal: 20.0))),
+                child: const Text("Cancel"),
+              )
+            ],
+          )
+        ]),
       ),
     );
   }
@@ -42,6 +87,50 @@ class SendMoneyEnterAmount extends StatefulWidget {
 class _SendMoneyEnterAmountState extends State<SendMoneyEnterAmount> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Flutter: Amount To Send"),
+        elevation: 0.0,
+      ),
+      body: Container(
+        color: Colors.white,
+        padding: const EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 0.0),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const Text("Enter Amount To Send"),
+          const TextField(),
+          const SizedBox(
+            height: 12.0,
+          ),
+          const Text("some-random-text"),
+          const SizedBox(
+            height: 12.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              FilledButton(
+                onPressed: () {},
+                style: const ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
+                        vertical: 12.0, horizontal: 20.0))),
+                child: const Text("Proceed"),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil("/mpesa-menu/", (route) => true);
+                },
+                style: const ButtonStyle(
+                    foregroundColor: MaterialStatePropertyAll(Colors.blue),
+                    elevation: MaterialStatePropertyAll(0.0),
+                    padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
+                        vertical: 12.0, horizontal: 20.0))),
+                child: const Text("Cancel"),
+              )
+            ],
+          )
+        ]),
+      ),
+    );
   }
 }
