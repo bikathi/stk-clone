@@ -17,11 +17,33 @@ import 'package:flutter/material.dart';
 class MpesaMenu extends StatelessWidget {
   const MpesaMenu({super.key});
 
+  // non-changing states
+  static const List<String> mpesaOptions = [
+    "Send Money",
+    "Withdraw Cash",
+    "Buy Airtime",
+    "Loans and Savings",
+    "Lipa na M-PESA",
+    "My Account"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Flutter M-Pesa"),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: mpesaOptions.map((option) {
+          return TextButton(
+              onPressed: () {},
+              child: Text(
+                option,
+                style: const TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.normal),
+              ));
+        }).toList(),
       ),
     );
   }
