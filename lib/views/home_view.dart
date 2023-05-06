@@ -22,6 +22,7 @@ class StkHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Flutter STK Clone"),
+        elevation: 0.0,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
