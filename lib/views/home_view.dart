@@ -36,7 +36,6 @@ class StkHomePage extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.black, fontWeight: FontWeight.normal),
               )),
-          const Divider(),
           TextButton(
               onPressed: () {
                 Navigator.of(context)
