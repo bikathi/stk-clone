@@ -22,10 +22,65 @@ class PasswordInput extends StatefulWidget {
 }
 
 class _PasswordInputState extends State<PasswordInput> {
+  late final TextEditingController _passwordEditingController;
+
+  @override
+  void initState() {
+    super.initState();
+    _passwordEditingController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _passwordEditingController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.redAccent,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Flutter: Password Input"),
+        elevation: 0.0,
+      ),
+      body: Container(
+        color: Colors.white,
+        padding: const EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 0.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text("Enter Your Password"),
+            TextField(
+              controller: _passwordEditingController,
+              keyboardType: TextInputType.number,
+              obscureText: true,
+            ),
+            const SizedBox(
+              height: 12.0,
+            ),
+            const Text(
+              "(Any Four Digits)",
+              style: TextStyle(fontSize: 11.0),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FilledButton(
+                    onPressed: () {
+                      if (_passwordEditingController.text.length == 4) {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            "/home/", (route) => false);
+                      }
+                    },
+                    child: const Text("Send Money"))
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
