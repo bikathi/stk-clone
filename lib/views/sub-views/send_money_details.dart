@@ -153,7 +153,7 @@ class _SendMoneyEnterAmountState extends State<SendMoneyEnterAmount> {
               FilledButton(
                 onPressed: () {
                   Navigator.of(context).pushNamedAndRemoveUntil(
-                      "/enter-password/", (route) => true);
+                      "/enter-password/", (route) => false);
                 },
                 style: const ButtonStyle(
                     padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
