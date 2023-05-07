@@ -24,6 +24,7 @@ void main() {
     title: "Flutter STK Clone",
     home: const StkHomePage(),
     routes: {
+      "/home/": (context) => const StkHomePage(),
       "/saf-plus/": (context) => const SafaricomPlus(),
       "/mpesa-menu/": (context) => const MpesaMenu(),
       "/send-money-number/": (context) => const SendMoneyEnterNumber(),
