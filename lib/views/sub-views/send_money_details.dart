@@ -152,8 +152,10 @@ class _SendMoneyEnterAmountState extends State<SendMoneyEnterAmount> {
             children: [
               FilledButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      "/enter-password/", (route) => false);
+                  if (int.parse(_amountToSendController.text) >= 100) {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        "/enter-password/", (route) => false);
+                  }
                 },
                 style: const ButtonStyle(
                     padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
