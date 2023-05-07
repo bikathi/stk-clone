@@ -22,6 +22,20 @@ class SendMoneyEnterNumber extends StatefulWidget {
 }
 
 class _SendMoneyEnterNumberState extends State<SendMoneyEnterNumber> {
+  late final TextEditingController _phoneNumberEdittingController;
+
+  @override
+  void initState() {
+    super.initState();
+    _phoneNumberEdittingController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _phoneNumberEdittingController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,13 +48,17 @@ class _SendMoneyEnterNumberState extends State<SendMoneyEnterNumber> {
         padding: const EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 0.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Text("Enter Recipient Phone Number"),
-          const TextField(
+          TextField(
             keyboardType: TextInputType.number,
+            controller: _phoneNumberEdittingController,
           ),
           const SizedBox(
             height: 12.0,
           ),
-          const Text("some-random-text"),
+          const Text(
+            "(10 Numbers)",
+            style: TextStyle(fontSize: 11.0),
+          ),
           const SizedBox(
             height: 12.0,
           ),
@@ -49,15 +67,17 @@ class _SendMoneyEnterNumberState extends State<SendMoneyEnterNumber> {
             children: [
               FilledButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      "/send-money-amount/", (route) => true);
+                  if (_phoneNumberEdittingController.text.length == 10) {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        "/send-money-amount/", (route) => true);
+                  }
                 },
                 style: const ButtonStyle(
                     padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
                         vertical: 12.0, horizontal: 20.0))),
                 child: const Text("Proceed"),
               ),
-              OutlinedButton(
+              TextButton(
                 onPressed: () {
                   Navigator.of(context)
                       .pushNamedAndRemoveUntil("/mpesa-menu/", (route) => true);
@@ -67,7 +87,9 @@ class _SendMoneyEnterNumberState extends State<SendMoneyEnterNumber> {
                     elevation: MaterialStatePropertyAll(0.0),
                     padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
                         vertical: 12.0, horizontal: 20.0))),
-                child: const Text("Cancel"),
+                child: const Text(
+                  "Cancel",
+                ),
               )
             ],
           )
@@ -85,6 +107,20 @@ class SendMoneyEnterAmount extends StatefulWidget {
 }
 
 class _SendMoneyEnterAmountState extends State<SendMoneyEnterAmount> {
+  late final TextEditingController _amountToSendController;
+
+  @override
+  void initState() {
+    super.initState();
+    _amountToSendController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _amountToSendController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,11 +133,17 @@ class _SendMoneyEnterAmountState extends State<SendMoneyEnterAmount> {
         padding: const EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 0.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Text("Enter Amount To Send"),
-          const TextField(),
+          TextField(
+            keyboardType: TextInputType.number,
+            controller: _amountToSendController,
+          ),
           const SizedBox(
             height: 12.0,
           ),
-          const Text("some-random-text"),
+          const Text(
+            "(At Least 100 Ksh)",
+            style: TextStyle(fontSize: 11.0),
+          ),
           const SizedBox(
             height: 12.0,
           ),
@@ -109,13 +151,16 @@ class _SendMoneyEnterAmountState extends State<SendMoneyEnterAmount> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               FilledButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      "/enter-password/", (route) => true);
+                },
                 style: const ButtonStyle(
                     padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
                         vertical: 12.0, horizontal: 20.0))),
                 child: const Text("Proceed"),
               ),
-              OutlinedButton(
+              TextButton(
                 onPressed: () {
                   Navigator.of(context)
                       .pushNamedAndRemoveUntil("/mpesa-menu/", (route) => true);
