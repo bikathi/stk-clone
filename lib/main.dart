@@ -17,6 +17,7 @@ import 'package:stkclone/views/home_view.dart';
 import 'package:stkclone/views/safaricom_plus_view.dart';
 import 'package:stkclone/views/mpesa_menu_view.dart';
 import 'package:stkclone/views/sub-views/send_money_details.dart';
+import 'package:stkclone/views/sub-views/password_input.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -26,7 +27,8 @@ void main() {
       "/saf-plus/": (context) => const SafaricomPlus(),
       "/mpesa-menu/": (context) => const MpesaMenu(),
       "/send-money-number/": (context) => const SendMoneyEnterNumber(),
-      "/send-money-amount/": (context) => const SendMoneyEnterAmount()
+      "/send-money-amount/": (context) => const SendMoneyEnterAmount(),
+      "/enter-password/": (context) => const PasswordInput(),
     },
   ));
 }
