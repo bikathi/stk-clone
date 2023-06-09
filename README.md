@@ -1,16 +1,15 @@
-# stkclone
+# Flutter STK Clone
+## DETAILS
+- Author: **Bikathi Martin**
+- Language: Dart
+- Framework: Flutter
+- Target Platform: Android 9+
+- License: Apache2.0
 
-A new Flutter project.
+## ABOUT
+MY second Flutter project deployed on Android. It iss a simple STK clone(look over functionality) written with Flutter's material UI widgets and basic routing concepts.
+Feel free to download the app in the releases section and try it out.
+Below is a simple demo of the app :)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## APP DEMO
+![app-demo](https://github.com/Q-T5/stk-clone/assets/98804363/83310777-a306-4a8b-ad38-43dbc3f6054d)
